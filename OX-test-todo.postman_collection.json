@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "aa311271-aaa3-4df3-92ec-5c781ca669a2",
+		"name": "OX-test-todo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8871005"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test Name\",\n    \"login\": \"username\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}/users/register",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"username\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}/users/login",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QyMzFkNTg3NGE3YTFjZGE3MWFkYTMiLCJpYXQiOjE3NDE4MjkwMDgsImV4cCI6MTc0MTgyOTkwOH0.RnOky67UQV_MbfQ8LtY_vENkRdN2WEyahk_SHuBxpcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}/users/:userId",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Create project",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QyMzFkNTg3NGE3YTFjZGE3MWFkYTMiLCJpYXQiOjE3NDE4MjkwMDgsImV4cCI6MTc0MTgyOTkwOH0.RnOky67UQV_MbfQ8LtY_vENkRdN2WEyahk_SHuBxpcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test project\"\n    //\"users\": [] not required\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}/projects",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user`s projects",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QyMzFkNTg3NGE3YTFjZGE3MWFkYTMiLCJpYXQiOjE3NDE4MjkwMDgsImV4cCI6MTc0MTgyOTkwOH0.RnOky67UQV_MbfQ8LtY_vENkRdN2WEyahk_SHuBxpcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}/projects",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invite user to project",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QyMzFkNTg3NGE3YTFjZGE3MWFkYTMiLCJpYXQiOjE3NDE4MjkwMDgsImV4cCI6MTc0MTgyOTkwOH0.RnOky67UQV_MbfQ8LtY_vENkRdN2WEyahk_SHuBxpcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": \"67d235fc693f799552522de7\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}/projects/:projectId/invite",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"projects",
+								":projectId",
+								"invite"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "67d23516fd0ddcb6f0438945"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get project with tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QyMzFkNTg3NGE3YTFjZGE3MWFkYTMiLCJpYXQiOjE3NDE4MzAxMzksImV4cCI6MTc0MTkxNjUzOX0.TcZ_L3PEBqhST4Y1XVZ2TWZFQr21dNkE_dMQ816ETjM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}/projects/:projectId",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"projects",
+								":projectId"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "67d23516fd0ddcb6f0438945"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Create task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QyMzFkNTg3NGE3YTFjZGE3MWFkYTMiLCJpYXQiOjE3NDE4MzAxMzksImV4cCI6MTc0MTkxNjUzOX0.TcZ_L3PEBqhST4Y1XVZ2TWZFQr21dNkE_dMQ816ETjM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test task\",\n    \"description\": \"Test task description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}/projects/:projectId/tasks",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"projects",
+								":projectId",
+								"tasks"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "67d23516fd0ddcb6f0438945"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QyMzFkNTg3NGE3YTFjZGE3MWFkYTMiLCJpYXQiOjE3NDE4MzAxMzksImV4cCI6MTc0MTkxNjUzOX0.TcZ_L3PEBqhST4Y1XVZ2TWZFQr21dNkE_dMQ816ETjM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"New task name\",\n    \"description\": \"New task description\",\n    \"status\": \"In Progress\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}/projects/:projectId/tasks/:taskId",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"projects",
+								":projectId",
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "67d23516fd0ddcb6f0438945"
+								},
+								{
+									"key": "taskId",
+									"value": "67d23d6f8af40c75c96ef583"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QyMzFkNTg3NGE3YTFjZGE3MWFkYTMiLCJpYXQiOjE3NDE4MzAxMzksImV4cCI6MTc0MTkxNjUzOX0.TcZ_L3PEBqhST4Y1XVZ2TWZFQr21dNkE_dMQ816ETjM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}/projects/:projectId/tasks/:taskId",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"projects",
+								":projectId",
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "67d23516fd0ddcb6f0438945"
+								},
+								{
+									"key": "taskId",
+									"value": "67d23d668af40c75c96ef57d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}
